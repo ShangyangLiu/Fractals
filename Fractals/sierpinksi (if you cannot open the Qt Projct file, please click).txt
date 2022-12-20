@@ -1,0 +1,21 @@
+void drawSierpinskiCarpet(GWindow& window, double x, double y, double size, int order) {
+    /* TODO: Implement the Sierpinski Carpet drawing function. */
+    GText *text = new GText("Not Implemented!", 300, 300);
+    window.add(text);
+    if(order == 0)
+    {
+        drawSquare(window,x,y,size);
+    }
+    else
+    {
+
+        drawSierpinskiCarpet(window,x,y,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x+(1.0/3)*size,y,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x+(2.0/3)*size,y,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x+(2.0/3)*size,y+(1.0/3)*size,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x,y+(1.0/3)*size,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x,y+(2.0/3)*size,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x+(1.0/3)*size,y+(2.0/3)*size,(1.0/3)*size,order-1);
+        drawSierpinskiCarpet(window,x+(2.0/3)*size,y+(2.0/3)*size,(1.0/3)*size,order-1);
+    }
+}
